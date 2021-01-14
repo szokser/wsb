@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i&subset=greek-ext');
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet');
+
+#secondPage{
+  
+		background-image: url("https://media.istockphoto.com/vectors/helpdesk-icon-in-flat-style-headphone-vector-illustration-on-white-vector-id1259685265");
+		background-position: center;
+		background-origin: content-box;
+		background-repeat: repeat;
+		background-size: cover;
+		font-family: 'Noto Sans', sans-serif;
+		position: relative;
+		top: 0px;
+		right: 0px;
+		margin: 0px;
+		width: auto;
+		z-index: 1;
+		height: 100%;
+}
+
+.form>p{
+	font-size: 6.51vh;
+	font-family: 'Noto Sans', sans-serif;
+	text-decoration: wavy underline;
+	text-decoration-color:rgb(255, 187, 0);
+	font-family: 'Roboto', sans-serif;
+}
+
+.user {
+	position: relative;
+	font-size: 2vw;
+	background-color: rgb(0, 153, 255);
+	box-shadow: 0 0px 3px 3px rgb(0, 153, 255);
+	text-align:center;
+	width:100%;
+	justify-content:center;
+	box-sizing:border-box;
+	font-family: 'Roboto', sans-serif;
+	color: rgb(0, 0, 0);
+	height:6.3vh;
+}
+
+.link:hover {
+	text-decoration: none;
+	box-shadow: 0 0px 3px 3px rgb(0, 0, 153);
+	background-color:rgb(0, 0, 153);
+	color:rgb(255,255,255);
+}
+
+.link {
+    text-decoration: none;
+    color:rgb(0, 0, 0);
+	width:25%;
+	float:left;
+	display:block;
+	transition:0.3s;
+}
+
+.column{
+	margin: 0vh auto;
+}
+.box{
+	position:absolute;
+	left:50%;
+	top:50%;
+	transform: translate(-50%,-50%);
+    background-color: rgba(255, 255, 255, 0.89);
+    border: 10px solid rgb(255, 255, 255);
+	margin: 0vh auto;
+	width:60%;
+	padding-top:8.14vh;
+	padding-bottom:8.14vh;
+}
+
+.box2{
+	position:absolute;
+	padding:70px 100px;
+	margin:0vh auto;
+	width:100%;
+	background-color: rgba(255, 255, 255, 0.89);
+	padding-bottom:17%;
+}
+
+.box2>p{
+	font-size:20px;
+	font-weight:bold;
+}
+
+.box2>h1{
+	text-align:center;
+}
+
+.btn_2{ /*przycisk zatwierdzania zamówienia*/
+	color:rgb(0, 0, 0);
+	background-color: rgb(0, 153, 255);
+	outline: none;
+    border: 0;
+	padding:3.26vh 4.07vw;
+	text-transform:uppercase;
+	cursor:pointer;
+	position:relative;
+	font-family: 'Roboto', sans-serif;
+	transition:0.3s;
+	font-size:3.26vh;
+}
+
+.btn_3{
+	color:rgb(0, 0, 0);
+	background-color: rgb(255, 187, 0);
+	outline: none;
+    border: 0;
+	padding:3.26vh 4.07vw;
+	text-transform:uppercase;
+	cursor:pointer;
+	position:relative;
+	font-family: 'Roboto', sans-serif;
+	transition:0.3s;
+	margin-top:3.26vh;
+	width:49%;
+	margin-left:0.24vw;
+	font-size:3.26vh;
+}
+
+.btn_2:hover,.btn_3:hover,#data:hover{
+	background-color:rgb(0, 0, 153);
+	color:rgb(255,255,255);
+}
+
+#data{
+	background-color:rgb(255, 187, 0);
+	font-size: 3.26vh;
+	position: fixded;
+	transition:0.3s;
+}
+
+table {
+	border-collapse: collapse;
+	width:100%;
+	font-size:2.60vh;
+}
+
+th, td {
+	text-align: center;
+	padding: 1.30vh;
+}
+
+tr:nth-child(even) {background-color: #e2e1e1;}
+
+tr:hover {
+	background-color: rgb(0, 153, 255);
+	transition:0.3s;
+}
+
+figure {
+  width: 100%;
+  box-shadow: 0 0px 3px 2px rgb(255, 187, 0);
+}
+
+figcaption {
+	text-align: center;
+	padding-top: 3.26vh;
+	padding-bottom: 1.63vh;
+	background-color: rgb(255, 187, 0);
+	font-size:3vh;
+	transition:0.3s;
+}
+
+figcaption:hover{
+	background-color:rgb(255, 128, 0);
+	color:rgb(255,255,255);
+	box-shadow: 0 0px 3px 2px rgb(255, 128, 0);
+}
+
+img{
+	height: 57vh;
+	width: 81,43vh;
+	max-width: 100%;
+	display:block;
+}
+
+#bad_alert{
+	color:red;
+	float:left;
+	width:100%;
+	font-size:2.60vh;
+}
+
+#succes_alert{
+	color:green;
+	float:left;
+	width:100%;
+	font-size:2.60vh;
+}
+
+#succes_alert2{
+	color:green;
+	text-align:center;
+	width:100%;
+	font-size:3.26vh;
+	margin-top:3.26vh;
+}
+
+#tab_nag{
+	font-weight: bold;
+	padding:1.3vh;
+}
+
+#h2{
+	float:left;
+	width:100%;
+	padding-top:3.26vh;
+	padding-bottom:3.26vh;
+	font-size:4.88vh;
+}
+
+#com{
+	text-align:center;
+	width:100%;
+	font-size:2.60vh;
+}
+
+#desc, #title
+{
+	width: 100%;
+}
