@@ -55,7 +55,7 @@ else
 
     <div class="user"> 
 	  <a href="helpdesk_admin.php" class="link">Aktywne tickety</a>
-	  <a href="add_user.php" class="link">Dodaj użytkownika</a>
+	  <a href="add_user.php" class="link">Lista użytkowników</a>
 	  <a href="historia_admin.php" class="link">Historia bilecików</a>
       <a href="wyloguj.php" class="link">Wyloguj</a>
 	</div>

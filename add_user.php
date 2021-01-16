@@ -5,7 +5,7 @@
   <link rel='stylesheet' type='text/css' media='screen' href='css/css_helpdesk.css'>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="icon" type="image/png" href="./fav/favicon.png">
-  <title>HelpDesk - dodaj użytkownika</title>
+  <title>HelpDesk - lista użytkowników</title>
 </head>
 
 <body id="secondPage">
@@ -54,7 +54,7 @@ else
 
     <div class="user"> 
 	  <a href="helpdesk_admin.php" class="link">Aktywne tickety</a>
-	  <a href="add_user.php" class="link">Dodaj użytkownika</a>
+	  <a href="add_user.php" class="link">Lista użytkowników</a>
 	  <a href="historia_admin.php" class="link">Historia bilecików</a>
       <a href="wyloguj.php" class="link">Wyloguj</a>
 	</div>
@@ -108,6 +108,40 @@ if(isset($_REQUEST["submit1"])) //PRZYCISK DODANIA USERA
 }
 ?>
 	<!-- FORMULARZ -->
+		
+		<?php
+		
+		$query2=mysqli_query($connection,"SELECT * FROM users WHERE id != 0");
+		$rowcount2=mysqli_num_rows($query2);	
+	?>
+	
+	<br><h1>Lista użytkowników</h1>
+	<br><table border='1'>
+      <tr id="tab_nag">
+        <td>ID</td>
+        <td>Imię</td>
+        <td>Nazwisko</td>
+        <td>Płeć</td>
+		<td>Państwo</td>
+      </tr>
+      
+	  <?php
+        for($i=1;$i<=$rowcount2;$i++)
+        {
+            $row2=mysqli_fetch_array($query2);
+      ?>
+		<td><?php echo $row2["id"] ?></td>
+        <td><?php echo $row2["name"] ?></td>
+        <td><?php echo $row2["surname"] ?></td>
+        <td><?php echo $row2["gender"] ?></td>
+		<td><?php echo $row2["country"]?></td>
+      </tr>
+
+      <?php
+        }
+        ?>
+    </table>
+	
 	
 	<br><h1>Dodaj użytkownika</h1>
 	
