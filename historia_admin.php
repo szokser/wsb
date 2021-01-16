@@ -29,7 +29,7 @@
 		die("Database selection failed: " . mysqli_connect_error());
 	}
 
-	if($_SESSION["user"]==true)
+	if($_SESSION["user"]==true AND $_SESSION["user"] == "admin")
 	{
 		$login=$_SESSION["user"];
 		$query=mysqli_query($connection,"SELECT * FROM users WHERE login='$login'");
@@ -51,9 +51,9 @@
 <!-- MENU -->
 
     <div class="user"> 
-	  <a href="helpdesk.php" class="link">Aktywne tickety</a>
-	  <a href="add_ticket.php" class="link">Dodaj bilecik</a>
-	  <a href="historia.php" class="link">Historia bilecików</a>
+	  <a href="helpdesk_admin.php" class="link">Aktywne tickety</a>
+	  <a href="add_user.php" class="link">Dodaj użytkownika</a>
+	  <a href="historia_admin.php" class="link">Historia bilecików</a>
       <a href="wyloguj.php" class="link">Wyloguj</a>
 	</div>
     
@@ -67,7 +67,7 @@
 
 		$id=$row["id"];
 
-		$query=mysqli_query($connection,"SELECT * FROM tickets WHERE id_user=$id AND active=3");
+		$query=mysqli_query($connection,"SELECT * FROM tickets JOIN users ON tickets.id_user=users.id WHERE tickets.active=3");
 		$rowcount=mysqli_num_rows($query);	
 	?>
 	
@@ -81,6 +81,7 @@
         <td>Data</td>
 		<td>Priorytet</td>
 		<td>Status</td>
+		<td>Właściciel</td>
       </tr>
       
 	  <?php
@@ -103,6 +104,7 @@
 			else echo "Zakończony";			
 		?>
 		</td>
+		<td><?php echo $row["name"]." ".$row["surname"] ?></td>
 
       </tr>
 

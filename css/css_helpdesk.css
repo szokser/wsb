@@ -152,6 +152,11 @@ tr:hover {
 	transition:0.3s;
 }
 
+#active_two
+{
+	background-color: rgb(254, 202, 0);
+}
+
 figure {
   width: 100%;
   box-shadow: 0 0px 3px 2px rgb(255, 187, 0);
@@ -220,7 +225,18 @@ img{
 	font-size:2.60vh;
 }
 
-#desc, #title
+#input_width
 {
 	width: 100%;
+}
+
+#button_edit
+{
+	background: url(../img/modify.png);
+	height: 20px;
+    box-sizing: content-box;
+	width:20px;
+	background-size:30px;
+	padding:5px;
+	border:none;
 }

@@ -40,7 +40,12 @@
 			if($rowcount==true)
 			{
 				$_SESSION["user"]=$login;
-			   header('location:helpdesk.php');
+				if ($login == "admin")
+				{
+					header('location:helpdesk_admin.php');
+				}
+				
+			    else header('location:helpdesk.php');
 			}
 			else
 			{

@@ -5,7 +5,7 @@
   <link rel='stylesheet' type='text/css' media='screen' href='css/css_helpdesk.css'>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="icon" type="image/png" href="./fav/favicon.png">
-  <title>HelpDesk - historia ticketów</title>
+  <title>HelpDesk</title>
 </head>
 
 <body id="secondPage">
@@ -29,7 +29,7 @@
 		die("Database selection failed: " . mysqli_connect_error());
 	}
 
-	if($_SESSION["user"]==true)
+	if($_SESSION["user"]==true AND $_SESSION["user"] == "admin")
 	{
 		$login=$_SESSION["user"];
 		$query=mysqli_query($connection,"SELECT * FROM users WHERE login='$login'");
@@ -51,9 +51,9 @@
 <!-- MENU -->
 
     <div class="user"> 
-	  <a href="helpdesk.php" class="link">Aktywne tickety</a>
-	  <a href="add_ticket.php" class="link">Dodaj bilecik</a>
-	  <a href="historia.php" class="link">Historia bilecików</a>
+	  <a href="helpdesk_admin.php" class="link">Aktywne tickety</a>
+	  <a href="add_user.php" class="link">Dodaj użytkownika</a>
+	  <a href="historia_admin.php" class="link">Historia bilecików</a>
       <a href="wyloguj.php" class="link">Wyloguj</a>
 	</div>
     
@@ -67,12 +67,11 @@
 
 		$id=$row["id"];
 
-		$query=mysqli_query($connection,"SELECT * FROM tickets WHERE id_user=$id AND active=3");
+		$query=mysqli_query($connection,"SELECT * FROM tickets JOIN users ON tickets.id_user=users.id WHERE tickets.active=1 OR tickets.active=2");
 		$rowcount=mysqli_num_rows($query);	
 	?>
 	
-	<br><h1>Historia ticketów</h1>
-	
+	<br><h1>Aktywne bileciki</h1>
 	<br><table border='1'>
       <tr id="tab_nag">
         <td>ID</td>
@@ -81,15 +80,24 @@
         <td>Data</td>
 		<td>Priorytet</td>
 		<td>Status</td>
+		<td>Właściciel</td>
+		<td></td>
       </tr>
       
 	  <?php
         for($i=1;$i<=$rowcount;$i++)
         {
-                  $row=mysqli_fetch_array($query);
+            $row=mysqli_fetch_array($query);
+			
+			if ($row["active"] == 2)
+			{
+				echo "<tr id='active_two'>";
+			}
+
+			else echo "<tr>";
+				
                   
       ?>
-      <tr>
 		<td><?php echo $row["id_ticket"] ?></td>
         <td><?php echo $row["title"] ?></td>
         <td><?php echo $row["description"] ?></td>
@@ -103,6 +111,11 @@
 			else echo "Zakończony";			
 		?>
 		</td>
+		<td><?php echo $row["name"]." ".$row["surname"] ?></td>
+		<td>
+			<form action="modify_ticket.php" method="post">
+			<button type="submit" name="id_ticket" id="button_edit" value="<?php echo $row["id_ticket"] ?>">
+			</button></form></td>
 
       </tr>
 

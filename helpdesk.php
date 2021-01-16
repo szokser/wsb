@@ -51,8 +51,8 @@
 <!-- MENU -->
 
     <div class="user"> 
-	  <a href="helpdesk.php" class="link">Strona główna</a>
-	  <a href="add.php" class="link">Dodaj bilecik</a>
+	  <a href="helpdesk.php" class="link">Aktywne tickety</a>
+	  <a href="add_ticket.php" class="link">Dodaj bilecik</a>
 	  <a href="historia.php" class="link">Historia bilecików</a>
       <a href="wyloguj.php" class="link">Wyloguj</a>
 	</div>
@@ -67,7 +67,7 @@
 
 		$id=$row["id"];
 
-		$query=mysqli_query($connection,"SELECT * FROM tickets WHERE id_user=$id AND active=1 OR active=2");
+		$query=mysqli_query($connection,"SELECT * FROM tickets WHERE id_user=$id AND active=1 OR id_user=$id AND active=2");
 		$rowcount=mysqli_num_rows($query);	
 	?>
 	
@@ -86,10 +86,17 @@
 	  <?php
         for($i=1;$i<=$rowcount;$i++)
         {
-                  $row=mysqli_fetch_array($query);
+            $row=mysqli_fetch_array($query);
+			
+			if ($row["active"] == 2)
+			{
+				echo "<tr id='active_two'>";
+			}
+
+			else echo "<tr>";
+				
                   
       ?>
-      <tr>
 		<td><?php echo $row["id_ticket"] ?></td>
         <td><?php echo $row["title"] ?></td>
         <td><?php echo $row["description"] ?></td>
